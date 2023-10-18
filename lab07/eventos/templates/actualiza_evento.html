@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizar Evento</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #333;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            padding-top: 50px;
+        }
+        form {
+            background-color: #444;
+            width: 60%;
+            padding: 30px;
+            margin: 50px auto;
+            border-radius: 15px;
+        }
+        label {
+            font-weight: 300;
+            display: block;
+            margin-top: 20px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            box-shadow: inset 0px 0px 5px rgba(255,255,255,0.1);
+            background-color: #555;
+            color: #fff;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px 15px;
+            background-color: #ff6347;
+            color: #fff;
+            border-radius: 5px;
+            border: none;
+            margin-top: 20px;
+            cursor:pointer;
+        }
+        button:hover {
+            background-color: #ff4500;
+        }
+    </style>
+</head>
+<body>
+    <h1>Actualizar Evento</h1>
+    <form method="post" action="{% url 'actualizar_evento' evento.id %}">
+        {% csrf_token %}
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" value="{{ evento.nombre }}" required>
+        <br>
+        <label for="fecha">Fecha:</label>
+        <input type="date" name="fecha" value="{{ evento.fecha }}" required>
+        <br>
+        <label for="hora">Hora:</label>
+        <input type="time" name="hora" value="{{ evento.hora }}" required>
+        <br>
+        <label for="lugar">Lugar:</label>
+        <input type="text" name="lugar" value="{{ evento.lugar }}" required>
+        <br>
+        <label for="descripcion">Descripción:</label>
+        <input type="text" name="descripcion" value="{{ evento.descripcion }}" required>
+        <br>
+        <button type="submit">Actualizar Evento</button>
+    </form>
+</body>
+</html>
+
+

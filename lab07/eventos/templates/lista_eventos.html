@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Eventos</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            padding-top: 50px;
+        }
+        ul {
+            list-style-type: none;
+            width: 80%;
+            margin: 0 auto;
+        }
+        li {
+            background-color: #fff;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+        h3 {
+            margin-top: 0;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        a {
+            display: inline-block;
+            margin-right: 10px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        a:last-child {
+            background-color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de Eventos</h1>
+    <ul>
+        {% for evento in eventos %}
+            <li>
+                <h3>{{ evento.nombre }}</h3>
+                <p>{{ evento.fecha }}</p>
+                <p>{{ evento.hora }}</p>
+                <p>{{ evento.lugar }}</p>
+                <p>{{ evento.descripcion }}</p>
+                <a href="{% url 'actualizar_evento' evento.id %}">Editar</a>
+                <a href="{% url 'eliminar_evento' evento.id %}">Eliminar</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

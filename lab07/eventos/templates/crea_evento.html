@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Evento</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            padding-top: 50px;
+        }
+        form {
+            background-color: #fff;
+            width: 60%;
+            padding: 30px;
+            margin: 50px auto;
+            border-radius: 15px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 20px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px 15px;
+            background-color: #4caf50;
+            color: #fff;
+            border-radius: 5px;
+            border: none;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Crear Nuevo Evento</h1>
+    <form method="post" action="{% url 'crear_evento' %}">
+        {% csrf_token %}
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" required>
+        <br>
+        <label for="fecha">Fecha:</label>
+        <input type="date" name="fecha" required>
+        <br>
+        <label for="hora">Hora:</label>
+        <input type="time" name="hora" required>
+        <br>
+        <label for="lugar">Lugar:</label>
+        <input type="text" name="lugar" required>
+        <br>
+        <label for="descripcion">Descripción:</label>
+        <input type="text" name="descripcion" required>
+        <br>
+        <button type="submit">Crear Evento</button>
+    </form>
+</body>
+</html>
+
+
